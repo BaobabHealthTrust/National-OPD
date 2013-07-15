@@ -192,4 +192,9 @@ helper_method :allowed_hiv_viewer
     return false
   end
   
+  def confirm_before_creating                                                   
+    property = GlobalProperty.find_by_property("confirm.before.creating")       
+    property.property_value == 'true' rescue false                              
+  end
+  
 end
