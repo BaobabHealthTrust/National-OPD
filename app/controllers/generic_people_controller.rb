@@ -362,8 +362,8 @@ class GenericPeopleController < ApplicationController
 	end
  
   def create
-
-    if confirm_before_creating and not params[:force_create] == 'true' and params[:relation].blank?
+    
+   if confirm_before_creating and not params[:force_create] == 'true' and params[:relation].blank?
      @parameters = params
      birthday_params = params.reject{|key,value| key.match(/gender/) }
      unless birthday_params.empty?                                               
@@ -416,6 +416,7 @@ class GenericPeopleController < ApplicationController
        end
      end
 
+    
      #............................................................................
      @dde_search_results = {}
      (PatientService.search_demographics_from_remote(params) || []).each do |data|            
@@ -450,76 +451,57 @@ class GenericPeopleController < ApplicationController
         :user_entered_params => @parameters and return
      end
    end
- 
-    hiv_session = false
-    if current_program_location == "HIV program"
-      hiv_session = true
-    end
-    
-    person = PatientService.create_patient_from_dde(params) if create_from_dde_server
 
-    unless person.blank?
-      if use_filing_number and hiv_session
-        PatientService.set_patient_filing_number(person.patient) 
-        archived_patient = PatientService.patient_to_be_archived(person.patient)
-        message = PatientService.patient_printing_message(person.patient,archived_patient,creating_new_patient = true)
-        unless message.blank?
-          print_and_redirect("/patients/filing_number_and_national_id?patient_id=#{person.id}" , next_task(person.patient),message,true,person.id)
-        else
-          print_and_redirect("/patients/filing_number_and_national_id?patient_id=#{person.id}", next_task(person.patient)) 
-        end
-      else
-        print_and_redirect("/patients/national_id_label?patient_id=#{person.id}", next_task(person.patient))
-      end
-      return
-    end
+   hiv_session = false
+   if current_program_location == "HIV program"
+     hiv_session = true
+   end
+   success = false
 
-    success = false
-    Person.session_datetime = session[:datetime].to_date rescue Date.today
+   Person.session_datetime = session[:datetime].to_date rescue Date.today
+   identifier = params[:identifier] rescue nil
+
+   if identifier.blank?
+    identifier = params[:person][:patient][:identifiers]['National id']
+   end rescue nil
+
+   if create_from_dde_server
+     unless identifier.blank?
+       params[:person].merge!({"identifiers" => {"National id" => identifier}})
+       success = true
+       person = PatientService.create_from_form(params[:person])
+         if identifier.length != 6
+           patient = DDEService::Patient.new(person.patient)
+           national_id_replaced = patient.check_old_national_id(identifier)
+         end
+     else
+       person = PatientService.create_patient_from_dde(params)
+       success = true
+     end
 
     #for now BART2 will use BART1 for patient/person creation until we upgrade BART1 to 2
     #if GlobalProperty.find_by_property('create.from.remote') and property_value == 'yes'
     #then we create person from remote machine
-    if create_from_remote
+    elsif create_from_remote
       person_from_remote = PatientService.create_remote_person(params)
       person = PatientService.create_from_form(person_from_remote["person"]) unless person_from_remote.blank?
 
       if !person.blank?
         success = true
-        person.patient.remote_national_id
+        PatientService.get_remote_national_id(person.patient)
       end
     else
       success = true
+      params[:person].merge!({"identifiers" => {"National id" => identifier}}) unless identifier.blank?
       person = PatientService.create_from_form(params[:person])
     end
 
     if params[:person][:patient] && success
-		  	if !params[:identifier].empty?	
-					patient_identifier = PatientIdentifier.new
-					patient_identifier.type = PatientIdentifierType.find_by_name("National id")
-					patient_identifier.identifier = params[:identifier]
-					patient_identifier.patient = person.patient
-					patient_identifier.save!
-				end
-
       PatientService.patient_national_id_label(person.patient)
       unless (params[:relation].blank?)
         redirect_to search_complete_url(person.id, params[:relation]) and return
       else
-
-
-        if use_filing_number and hiv_session
-          PatientService.set_patient_filing_number(person.patient) 
-          archived_patient = PatientService.patient_to_be_archived(person.patient)
-          message = PatientService.patient_printing_message(person.patient,archived_patient,creating_new_patient = true)
-          unless message.blank?
-            print_and_redirect("/patients/filing_number_and_national_id?patient_id=#{person.id}" , next_task(person.patient),message,true,person.id)
-          else
-            print_and_redirect("/patients/filing_number_and_national_id?patient_id=#{person.id}", next_task(person.patient)) 
-          end
-        else
-          print_and_redirect("/patients/national_id_label?patient_id=#{person.id}", next_task(person.patient))
-        end
+        print_and_redirect("/patients/national_id_label?patient_id=#{person.id}", next_task(person.patient))
       end
     else
       # Does this ever get hit?
