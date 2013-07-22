@@ -627,7 +627,7 @@ module DDEService
     return PatientService.create_from_form(passed["person"])
   end
 
-  def self.create_footprint(national_id, location_id)
+  def self.create_footprint(national_id, location_name)
     create_from_dde_server = CoreService.get_global_property_value('create.from.dde.server').to_s == "true" rescue false
     return unless create_from_dde_server
     paramz = {:value => national_id, :workstation_location => location_name}
