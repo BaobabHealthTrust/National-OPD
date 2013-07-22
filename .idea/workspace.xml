@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f929e51f-d2f0-473a-99ac-150bf3b49124" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dashboards/opdtreatment_dashboard.rhtml" afterPath="$PROJECT_DIR$/app/views/dashboards/opdtreatment_dashboard.rhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dashboards/programs_dashboard.rhtml" afterPath="$PROJECT_DIR$/app/views/dashboards/programs_dashboard.rhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clinic/index.rhtml" afterPath="$PROJECT_DIR$/app/views/clinic/index.rhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dashboards/treatment_dashboard.rhtml" afterPath="$PROJECT_DIR$/app/views/dashboards/treatment_dashboard.rhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/patients/index.rhtml" afterPath="$PROJECT_DIR$/app/views/patients/index.rhtml" />
     </list>
@@ -37,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.rhtml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/patients/index.rhtml">
+      <file leaf-file-name="programs_dashboard.rhtml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/dashboards/programs_dashboard.rhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="105" selection-start="743" selection-end="743" vertical-scroll-proportion="0.49479166">
+            <state line="34" column="20" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.027164686">
               <folding />
             </state>
           </provider>
@@ -59,11 +57,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/clinic/index.rhtml" />
-        <option value="$PROJECT_DIR$/app/views/dashboards/treatment_dashboard.rhtml" />
         <option value="$PROJECT_DIR$/app/views/dashboards/programs_dashboard.rhtml" />
         <option value="$PROJECT_DIR$/app/views/dashboards/opdtreatment_dashboard.rhtml" />
+        <option value="$PROJECT_DIR$/app/views/clinic/index.rhtml" />
         <option value="$PROJECT_DIR$/app/views/patients/index.rhtml" />
+        <option value="$PROJECT_DIR$/app/views/dashboards/treatment_dashboard.rhtml" />
       </list>
     </option>
   </component>
@@ -126,7 +124,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="National-OPD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="National-OPD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboards" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -410,18 +434,6 @@
         <state line="80" column="63" selection-start="3175" selection-end="3179" vertical-scroll-proportion="0.33278418" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/clinic/index.rhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="75" selection-start="1615" selection-end="1670" vertical-scroll-proportion="0.69883525" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/dashboards/treatment_dashboard.rhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="104" selection-start="2761" selection-end="2761" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/relationships_dashboard.rhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="21" selection-start="2620" selection-end="2622" vertical-scroll-proportion="0.0">
@@ -443,16 +455,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/dashboards/programs_dashboard.rhtml">
+    <entry file="file://$PROJECT_DIR$/app/views/dashboards/overview_tab.rhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="20" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.025466893">
+        <state line="28" column="95" selection-start="1189" selection-end="1192" vertical-scroll-proportion="0.5798165">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/dashboards/overview_tab.rhtml">
+    <entry file="file://$PROJECT_DIR$/app/views/clinic/index.rhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="95" selection-start="1189" selection-end="1192" vertical-scroll-proportion="0.5798165">
+        <state line="20" column="39" selection-start="833" selection-end="833" vertical-scroll-proportion="-12.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/dashboards/treatment_dashboard.rhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="95" selection-start="2752" selection-end="2752" vertical-scroll-proportion="0.104166664">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/patients/index.rhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="94" selection-start="732" selection-end="732" vertical-scroll-proportion="0.49479166">
           <folding />
         </state>
       </provider>
@@ -464,9 +490,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/patients/index.rhtml">
+    <entry file="file://$PROJECT_DIR$/app/views/dashboards/programs_dashboard.rhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="105" selection-start="743" selection-end="743" vertical-scroll-proportion="0.49479166">
+        <state line="34" column="20" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.027164686">
           <folding />
         </state>
       </provider>
