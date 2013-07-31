@@ -18,15 +18,15 @@
               <th colspan=2>Home Page</th>
             </tr>
             <h1 id='project_name'>
-              <div style="font-size: 0.7em; margin-top: 10px;height:90px; ">
+              <div style="font-size: 38px; margin-top: 10px;height:90px; ">
                 <%location_name = (@location.downcase == "outpatient" ? "OPD" : "OPD") 
                   if current_user.activities.include?('Manage Lab Orders') or current_user.activities.include?('Manage Lab Results') or
                   current_user.activities.include?('Manage Sputum Submissions') or current_user.activities.include?('Manage TB Clinic Visits') or
                   current_user.activities.include?('Manage TB Reception Visits') or current_user.activities.include?('Manage TB Registration Visits') or
                   current_user.activities.include?('Manage HIV Status Visits') %>
-                    <span style="font-size: 40px;"><img src="/images/mw.gif" ><br>NOPD</span>
+                    <span style="font-size: 40px;"><img src="/images/mw.gif" ><br>MOH OPD</span>
                 <%else%>
-                    <img src="/images/mw.gif" style="height:50px" ><br>NOPD
+                    <img src="/images/mw.gif" style="height:50px" ><br>MOH OPD
                <%end%>
               </div>
             </h1>
