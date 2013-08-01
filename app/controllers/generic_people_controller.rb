@@ -194,10 +194,26 @@ class GenericPeopleController < ApplicationController
       next if national_id.blank?
       results = PersonSearch.new(national_id)
       results.national_id = national_id
-      results.current_residence =data["person"]["data"]["addresses"]["city_village"]
+
+      unless data["person"]["data"]["addresses"]["city_village"].match(/hashwithindifferentaccess/i)
+        results.current_residence = data["person"]["data"]["addresses"]["city_village"]
+      else                                                                      
+        results.current_residence = nil                                         
+      end                                                                       
+                                                                                
+      unless data["person"]["data"]["addresses"]["address2"].match(/hashwithindifferentaccess/i)
+        results.home_district = data["person"]["data"]["addresses"]["address2"] 
+      else                                                                      
+        results.home_district = nil                                             
+      end                                                                       
+                                                                                
+      unless data["person"]["data"]["addresses"]["county_district"].match(/hashwithindifferentaccess/i)
+        results.traditional_authority =  data["person"]["data"]["addresses"]["county_district"]
+      else                                                                      
+        results.traditional_authority = nil                                     
+      end
+
       results.person_id = 0
-      results.home_district = data["person"]["data"]["addresses"]["address2"]
-      results.traditional_authority =  data["person"]["data"]["addresses"]["county_district"]
       results.name = data["person"]["data"]["names"]["given_name"] + " " + data["person"]["data"]["names"]["family_name"]
       gender = data["person"]["data"]["gender"]
       results.occupation = data["person"]["data"]["occupation"]
