@@ -199,19 +199,19 @@ class GenericPeopleController < ApplicationController
         results.current_residence = data["person"]["data"]["addresses"]["city_village"]
       else                                                                      
         results.current_residence = nil                                         
-      end                                                                       
+      end rescue results.current_residence                                                                      
                                                                                 
       unless data["person"]["data"]["addresses"]["address2"].match(/hashwithindifferentaccess/i)
         results.home_district = data["person"]["data"]["addresses"]["address2"] 
       else                                                                      
         results.home_district = nil                                             
-      end                                                                       
+      end rescue results.home_district                                      
                                                                                 
       unless data["person"]["data"]["addresses"]["county_district"].match(/hashwithindifferentaccess/i)
         results.traditional_authority =  data["person"]["data"]["addresses"]["county_district"]
       else                                                                      
         results.traditional_authority = nil                                     
-      end
+      end rescue results.traditional_authority
 
       results.person_id = 0
       results.name = data["person"]["data"]["names"]["given_name"] + " " + data["person"]["data"]["names"]["family_name"]
