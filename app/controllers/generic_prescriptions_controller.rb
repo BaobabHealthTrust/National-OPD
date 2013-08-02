@@ -322,4 +322,45 @@ class GenericPrescriptionsController < ApplicationController
 		end
 
 	end
+
+  def simple_prescription
+    #@generics = MedicationService.generic
+    render:layout => "application"
+  end
+
+  def drug_formulations
+    search_string = params[:search_string]
+    unless search_string.blank?
+      @drugs = Drug.find(:all,
+        :select => "name",
+        :conditions => ["name LIKE ?", '%' + search_string + '%'],
+        :order => "name ASC")
+    else
+      @drugs = Drug.find(:all, :select => "name",:order => "name ASC",
+        :limit => 10)
+    end
+    render :text => "<li>" + @drugs.map{|drug| drug.name }.join("</li><li>") + "</li>"
+  end
+
+  def create_simple_prescription
+    generics = params[:generics].delete_if{|item|item == ""}
+    patient_id = params[:patient_id]
+    concept_id = Concept.find_by_name('GIVEN DRUGS').id
+    encounter = Encounter.new
+    encounter.encounter_type = EncounterType.find_by_name('DRUGS GIVEN').id
+    encounter.patient_id = patient_id
+    encounter.encounter_datetime = session[:datetime]
+    encounter.save
+    generics.each do |drug|
+     obs = Observation.new
+     obs.person_id = encounter.patient_id
+     obs.concept_id = concept_id
+     obs.obs_datetime = Time.now
+     obs.encounter_id = encounter.id
+     obs.value_drug = Drug.find_by_name(drug).id
+     obs.value_text = drug
+     obs.save
+    end
+    redirect_to("/patients/show/#{patient_id}")
+  end
 end
