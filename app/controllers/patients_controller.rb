@@ -127,7 +127,7 @@ class PatientsController < GenericPatientsController
 		@hiv_status = PatientService.patient_hiv_status(@patient)
 		@reason_for_art_eligibility = PatientService.reason_for_art_eligibility(@patient)
 		@arv_number = PatientService.get_patient_identifier(@patient, 'ARV Number')
-
+    @point_of_care = CoreService.get_global_property_value('point_of_care')
 		render :template => 'patients/index', :layout => false
 	end
 
