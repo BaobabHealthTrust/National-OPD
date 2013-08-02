@@ -1,0 +1,55 @@
+<script>
+  var tt_cancel_destination = "/patients/show/<%= params[:patient_id] %>"
+
+function set_ajaxURL_for_suggestions(value) {
+    url = "/prescriptions/drug_formulations?concept_id=" + value
+    $('touchscreenInput'+tstCurrentPage).setAttribute('ajaxURL', url);
+    listSuggestions(tstCurrentPage);
+  }
+</script>
+
+<form  action="create_simple_prescription" method='post'>
+  <%= text_field_tag "generics[]", "", {
+    :ajaxURL => "/prescriptions/drug_formulations?search_string=",
+    :helpText => "Select Drug"}%>
+
+  <%= text_field_tag "generics[]", "", {
+    :id => "optional_drug",
+    :ajaxURL => "/prescriptions/drug_formulations?search_string=",
+    :optional => "true",
+    :helpText => "Select Drug"}%>
+  <% 
+     max_counter = 3
+     counter = 0
+  %>
+  <% max_counter.times do %>
+  <% counter +=1 %>
+  <%= text_field_tag "generics[]", nil, {
+    :id =>"#{counter}",
+    :optional => "true",
+    :ajaxURL => "/prescriptions/drug_formulations?search_string=",
+    :condition => "checkOptionalValue(#{counter}) == 'continue'",
+    :helpText => "Select Drug"}%>
+
+   <% end %>
+  <%= hidden_field_tag"patient_id", params[:patient_id] %>
+</form>
+<script>
+  
+function checkOptionalValue(counter){
+  return_value = ""
+  if (counter == 1){
+    opt_value = document.getElementById('optional_drug')
+    if (opt_value.value != ''){
+      return_value = "continue"
+      }
+    }
+  else{
+    opt_value = document.getElementById(counter - 1)
+    if (opt_value.value != ''){
+      return_value = "continue"
+    }
+  }
+  return return_value
+}
+</script>
