@@ -84,8 +84,7 @@
 					</select>
 			
 					<select id="navigation_links">
-						<% if @show_tasks_button == true%>
-
+                                          <% if @show_tasks_button == true%>
                                             <option link="/encounter_types?patient_id=<%= @patient.id -%>" ttSize = "160px">Tasks</option>
                                           <% else %>
                                             <option link="/encounter_types?patient_id=<%= @patient.id -%>" ttSize = "160px">Outcomes</option>
