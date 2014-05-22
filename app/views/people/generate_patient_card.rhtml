@@ -1,0 +1,23 @@
+<html>
+<style>
+body{
+  font-family: "Nimbus Sans L", "Arial Narrow", sans-serif;
+}
+
+</style>
+<% redirect_url = "/patients/show/#{params[:patient_id]}" %>
+<script>
+    function redirect(){
+      document.location = '<%= redirect_url %>'
+    }
+    window.setTimeout("redirect()", 6000);
+</script>
+
+<body>
+    <br/><br/> <br/>
+    <center>
+      <h1>Generating Card please wait...</h1>
+    </center>
+  </body>
+
+</html>

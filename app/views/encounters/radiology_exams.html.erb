@@ -1,0 +1,64 @@
+<script type="text/javascript" language="javascript">
+  var tt_cancel_destination = "/patients/show?patient_id=<%= @patient.patient_id %>"
+  //var tt_cancel_destination = "/patients/investigations_dashboard/<%= @patient.patient_id %>"
+</script>
+<style type="text/css" media="screen">
+  #space { display:inline; font-size:1.2em; }
+  form{
+    display: block!important;
+}
+</style>
+
+  <form id='radio_exam' action="/encounters/create_radiology_exam" method='post'>
+    <% default={
+      :allowFreeText => 'false',
+    } %>
+
+    <%= hidden_field_tag "encounter[encounter_type_name]", "RADIOLOGY EXAMINATION" %>
+    <%= hidden_field_tag "encounter[patient_id]", @patient.id %>
+    <%= hidden_field_tag "encounter[encounter_datetime]", DateTime.now() %>
+    <%= hidden_field_tag "encounter[provider_id]", current_user.person_id %>
+
+    <%= hidden_field_tag "patient_identifier[patient_id]", @patient.id %>
+    <%= hidden_field_tag "patient_identifier[identifier_type_name]", "Radiology Study Number" %>
+    <!-- hidden_field_tag "patient_identifier[lab_id]", "LAB" -->
+
+    <select style="width: 100%" id="multiple" class="multi" name="radio_exams[]" helptext="Select Radiology orders" multiple="multiple" nested="true">
+          <option></option>
+
+          <!-- this is where you add your radiology exam options -->
+          <optgroup id="shoulder_xray" label="Shoulder">
+            <% @shoulder.each do |shoulder| %>
+              <option id="<%=shoulder.squish%>" value="radiology:<%= shoulder.squish %> shoulder"><%= shoulder.squish %> shoulder</option>
+            <% end %>
+          </optgroup>
+          
+          <optgroup id="arm_xray" label="Arm">
+            <% @arms.each do |arms| %>
+              <option id="<%=arms.squish%>" value="radiology:<%= arms.squish %> arm"><%= arms.squish %> arm</option>
+            <% end %>
+          </optgroup>
+          
+          <optgroup id="leg_xray" label="Leg">
+            <% @legs.each do |legs| %>
+              <option id="<%=legs.squish%>" value="radiology:<%= legs.squish %> leg"><%= legs.squish %> leg</option>
+            <% end %>
+          </optgroup>
+
+          <optgroup id="foot_xray" label="Foot">
+            <% @foot.each do |foot| %>
+              <option id="<%=foot.squish%>" value="radiology:<%= foot.squish %> foot"><%= foot.squish %> foot</option>
+            <% end %>
+          </optgroup>
+
+        </select>
+    
+    <% if @retrospective %>
+            <p><label for="filter_provider">Staff who provided the information (Provider)</label></br>
+            <%= text_field "filter" , 'provider', :helpText => 'Staff who provided the information (Provider)', :ajaxURL => '/user/username?username=' %></p>
+    <% else %>
+            <%= hidden_field_tag "filter[provider]", nil %>
+    <% end %>
+
+    <%= submit_tag "Finish" %>
+  </form>

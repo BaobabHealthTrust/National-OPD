@@ -25,15 +25,21 @@ class GenericApplicationController < ActionController::Base
 	helper_method :next_task
 	filter_parameter_logging :password
 	before_filter :authenticate_user!, :except => ['login', 'logout','remote_demographics',
-		                                      'create_remote', 'mastercard_printable', 'get_token']
+		                                      'create_remote', 'mastercard_printable', 'get_token', 'preview_id_card',
+                                          'preview_id_card_plain'
+                                          ]
 
     before_filter :set_current_user, :except => ['login', 'logout','remote_demographics',
-		                                      'create_remote', 'mastercard_printable', 'get_token']
+		                                      'create_remote', 'mastercard_printable', 'get_token', 'preview_id_card',
+                                          'preview_id_card_plain'
+                                          ]
 
 	before_filter :location_required, :except => ['login', 'logout', 'location',
 		                                        'demographics','create_remote',
 		                                         'mastercard_printable',
-		                                        'remote_demographics', 'get_token', 'single_sign_in']
+		                                        'remote_demographics', 'get_token', 'single_sign_in', 'preview_id_card',
+                                            'preview_id_card_plain'
+                                            ]
   
 	def rescue_action_in_public(exception)
 		@message = exception.message

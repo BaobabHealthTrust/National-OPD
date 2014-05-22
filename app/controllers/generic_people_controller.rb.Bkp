@@ -1,10 +1,3 @@
-# this is all the require things for 'Barby' gem
-require 'barby'
-# you'll have to change this depends on what barcode form can your reader read.
-require 'barby/barcode/code_128'
-require 'barby/outputter/html_outputter'
-require 'RMagick'
-include Magick
 class GenericPeopleController < ApplicationController
     
 	def index
@@ -446,33 +439,32 @@ class GenericPeopleController < ApplicationController
 
     
      #............................................................................
-      @dde_search_results = {}
-      (PatientService.search_demographics_from_remote(params) || []).each do |data|            
-        national_id = data["person"]["data"]["patient"]["identifiers"]["National id"] rescue nil
-        national_id = data["person"]["value"] if national_id.blank? rescue nil    
-        national_id = data["npid"]["value"] if national_id.blank? rescue nil      
-        national_id = data["person"]["data"]["patient"]["identifiers"]["old_identification_number"] if national_id.blank? rescue nil
-                                                                                  
-        next if national_id.blank?                                                
-        results = PersonSearch.new(national_id)                                   
-        results.national_id = national_id                                         
-        results.current_residence = data["person"]["data"]["addresses"]["city_village"]
-        results.person_id = 0                                                     
-        results.home_district = data["person"]["data"]["addresses"]["address2"]   
-        results.neighborhood_cell = data["person"]["data"]["addresses"]["neighborhood_cell"]   
-        results.traditional_authority =  data["person"]["data"]["addresses"]["county_district"]
-        results.name = data["person"]["data"]["names"]["given_name"] + " " + data["person"]["data"]["names"]["family_name"]
-        gender = data["person"]["data"]["gender"]                                 
-        results.occupation = data["person"]["data"]["occupation"]                 
-        results.sex = (gender == 'M' ? 'Male' : 'Female')                         
-        results.birthdate_estimated = (data["person"]["data"]["birthdate_estimated"]).to_i
-        results.birth_date = birthdate_formatted((data["person"]["data"]["birthdate"]).to_date , results.birthdate_estimated)
-        results.birthdate = (data["person"]["data"]["birthdate"]).to_date         
-        results.age = cul_age(results.birthdate.to_date , results.birthdate_estimated)
-        @dde_search_results[results.national_id] = results                            
-      
-        break
-      end if create_from_dde_server
+     @dde_search_results = {}
+     (PatientService.search_demographics_from_remote(params) || []).each do |data|            
+       national_id = data["person"]["data"]["patient"]["identifiers"]["National id"] rescue nil
+       national_id = data["person"]["value"] if national_id.blank? rescue nil    
+       national_id = data["npid"]["value"] if national_id.blank? rescue nil      
+       national_id = data["person"]["data"]["patient"]["identifiers"]["old_identification_number"] if national_id.blank? rescue nil
+                                                                                
+       next if national_id.blank?                                                
+       results = PersonSearch.new(national_id)                                   
+       results.national_id = national_id                                         
+       results.current_residence = data["person"]["data"]["addresses"]["city_village"]
+       results.person_id = 0                                                     
+       results.home_district = data["person"]["data"]["addresses"]["address2"]   
+       results.neighborhood_cell = data["person"]["data"]["addresses"]["neighborhood_cell"]   
+       results.traditional_authority =  data["person"]["data"]["addresses"]["county_district"]
+       results.name = data["person"]["data"]["names"]["given_name"] + " " + data["person"]["data"]["names"]["family_name"]
+       gender = data["person"]["data"]["gender"]                                 
+       results.occupation = data["person"]["data"]["occupation"]                 
+       results.sex = (gender == 'M' ? 'Male' : 'Female')                         
+       results.birthdate_estimated = (data["person"]["data"]["birthdate_estimated"]).to_i
+       results.birth_date = birthdate_formatted((data["person"]["data"]["birthdate"]).to_date , results.birthdate_estimated)
+       results.birthdate = (data["person"]["data"]["birthdate"]).to_date         
+       results.age = cul_age(results.birthdate.to_date , results.birthdate_estimated)
+       @dde_search_results[results.national_id] = results                            
+       break
+     end if create_from_dde_server
      #............................................................................
 
      if not people_ids.blank? or not @dde_search_results.blank?
@@ -534,8 +526,7 @@ class GenericPeopleController < ApplicationController
       unless (params[:relation].blank?)
         redirect_to search_complete_url(person.id, params[:relation]) and return
       else
-        #print_and_redirect("/patients/national_id_label?patient_id=#{person.id}", "/people/preview_id_card/#{person.id}")
-        print_and_redirect("/patients/national_id_label?patient_id=#{person.id}", "/people/generate_patient_card?patient_id=#{person.id}")
+        print_and_redirect("/patients/national_id_label?patient_id=#{person.id}", next_task(person.patient))
       end
     else
       # Does this ever get hit?
@@ -543,61 +534,6 @@ class GenericPeopleController < ApplicationController
     end
   end
 
-  # this is the action which generate barcode and getting all information you need to put on id card
-  # than preview it on preview id card page
-  def preview_id_card
-    @patient = Patient.find(params[:id])
-    @patient_info = PatientService.get_patient(@patient.person)
-    
-    # generating barcode in Code128 form
-    # Note: Barcode form will need to be change depends on which form can Malawi's scanner read.
-    barcode = Barby::Code128B.new(@patient_info.national_id)
-    outputter = Barby::HtmlOutputter.new(barcode)
-    blob = Barby::HtmlOutputter.new(barcode)
-    outputter.to_html
-    @barcode_html = barcode.to_html(:class_name => 'id_card_barcode')
-    #render :layout => "menu"
-    File.open('Card04_4.jpg', 'w') {|f| f.write blob}
-    render :layout => "menu"
-  end
-
-  def preview_id_card_plain
-    @patient = Patient.find(params[:id])
-    @patient_info = PatientService.get_patient(@patient.person)
-
-    # generating barcode in Code128 form
-    # Note: Barcode form will need to be change depends on which form can Malawi's scanner read.
-    barcode = Barby::Code128B.new(@patient_info.national_id)
-    outputter = Barby::HtmlOutputter.new(barcode)
-    blob = Barby::HtmlOutputter.new(barcode)
-    outputter.to_html
-    @barcode_html = barcode.to_html(:class_name => 'id_card_barcode')
-    #render :layout => "menu"
-    File.open('Card04_4.jpg', 'w') {|f| f.write blob}
-    render :layout => false
-  end
-
-  def generate_patient_card
-    patient_id = params[:patient_id] rescue 25
-    Thread.new do
-       Kernel.system "cutycapt --zoom-factor=0.5 --url=http://localhost:3000/people/preview_id_card/#{patient_id} --out=/tmp/card_#{patient_id}.png"
-       sleep(15)
-       patient_card=Image.read("/tmp/card_#{patient_id}.png").first{self.quality=100}
-       sleep(7)
-        modified_card = patient_card.crop!(145,106,510,320) #x1=145, y1=106, width=510 height=320
-        #sleep(3)
-        modified_card.write("/tmp/card_#{patient_id}.png")
-        sleep(3)
-        copy_card_to_home_folder(patient_id)
-    end
- 
-  end
-  
-  def copy_card_to_home_folder(patient_id)
-    patient_card=Image.read("/tmp/card_#{patient_id}.png").first{self.quality=100}
-    patient_card.write("/home/mangochiman/patient_cards/card_#{patient_id}.png")
-  end
-  
   def set_datetime
     if request.post?
       unless params[:set_day]== "" or params[:set_month]== "" or params[:set_year]== ""

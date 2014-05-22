@@ -127,8 +127,8 @@ class PatientsController < GenericPatientsController
 		@hiv_status = PatientService.patient_hiv_status(@patient)
 		@reason_for_art_eligibility = PatientService.reason_for_art_eligibility(@patient)
 		@arv_number = PatientService.get_patient_identifier(@patient, 'ARV Number')
-	    @show_tasks_button = CoreService.get_global_property_value('show.tasks.button').to_s == "true" rescue false
-	    @point_of_care = CoreService.get_global_property_value('point_of_care')
+    @show_tasks_button = CoreService.get_global_property_value('show.tasks.button').to_s == "true" rescue false
+    @point_of_care = CoreService.get_global_property_value('point_of_care')
 		render :template => 'patients/index', :layout => false
 	end
 
@@ -141,13 +141,8 @@ class PatientsController < GenericPatientsController
 		@links << ["Demographics (Edit)","/patients/edit_demographics?patient_id=#{patient.id}"]
 		@links << ["Patient past visits (View)","/patients/past_visits_summary?patient_id=#{patient.id}"]
 		@links << ["Medical History (View)","/patients/past_diagnoses?patient_id=#{patient.id}"]
-   		@links << ["Investigation","/encounters/new/lab_orders?show&patient_id=#{patient.id} "]
-    	# add the radiology links for "recent radiology results" and "view radiology results" in patient dashboard. 
-    	@links << ["Recent Radiology Results","/patients/recent_radiology_orders?patient_id=#{patient.id}"]
-    	# this link will link to XERO and auto login for you
-    	@links << ["View Radiology Results","http://129.34.2.100/?user=#{Settings[:pacs_user]}&password=#{Settings[:pacs_pw]}"]
-    	@links << ["Recent Lab Orders Label","/patients/recent_lab_orders?patient_id=#{patient.id}"]
-    	
+    @links << ["Investigation","/encounters/new/lab_orders?show&patient_id=#{patient.id} "]
+    
 		if use_filing_number and not PatientService.get_patient_identifier(patient, 'Filing Number').blank?
 		  @links << ["Filing Number (Print)","/patients/print_filing_number/#{patient.id}"]
 		end 
@@ -159,6 +154,8 @@ class PatientsController < GenericPatientsController
 		if use_user_selected_activities
 		  @links << ["Change User Activities","/user/activities/#{current_user.id}?patient_id=#{patient.id}"]
 		end
+
+		@links << ["Recent Lab Orders Label","/patients/recent_lab_orders?patient_id=#{patient.id}"]
 
 		render :template => 'dashboards/personal_tab', :layout => false
 	end

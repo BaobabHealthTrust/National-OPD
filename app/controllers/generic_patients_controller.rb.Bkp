@@ -1,6 +1,7 @@
 class GenericPatientsController < ApplicationController
 	before_filter :find_patient, :except => [:void]
-  def show
+  
+	def show
 		
 		return_uri = session[:return_uri]
 		if !return_uri.blank?
@@ -302,22 +303,6 @@ class GenericPatientsController < ApplicationController
   def lab_orders_label
     patient = Patient.find(params[:patient_id])
     label_commands = patient_lab_orders_label(patient.id)
-
-    send_data(label_commands.to_s,:type=>"application/label; charset=utf-8", :stream=> false, :filename=>"#{patient.id}#{rand(10000)}.lbs", :disposition => "inline")
-  end
-
-  # redirect after radio label been created
-  def print_radio_orders
-    patient_id = params[:patient_id]
-    patient = Patient.find(patient_id)
-
-    print_and_redirect("/patients/radio_orders_label/?patient_id=#{patient.id}", next_task(patient))
-  end
-  
-  # create radio label
-  def radio_orders_label
-    patient = Patient.find(params[:patient_id])
-    label_commands = patient_radio_orders_label(patient.id)
 
     send_data(label_commands.to_s,:type=>"application/label; charset=utf-8", :stream=> false, :filename=>"#{patient.id}#{rand(10000)}.lbs", :disposition => "inline")
   end
@@ -898,34 +883,6 @@ class GenericPatientsController < ApplicationController
     @patient_id = params[:patient_id]
   end
 
-  # This function is use for getting find last five radiology orders
-  def get_recent_radiology_orders(patient_id)
-   encounters = Encounter.find(:all, :order => "encounter_datetime desc", :conditions =>["encounter_type = ? and patient_id = ?",
-        EncounterType.find_by_name("RADIOLOGY EXAMINATION").id, patient_id], :limit => 5)
-      
-      observations = []
-
-    encounters.each{|encounter|
-      encounter.observations.each {|observation|
-        obs_value_coded = observation['value_coded']
-        # obs_array = observation.to_s.split(':')
-        if observation['concept_id'] != Concept.find_by_name("Workstation location").concept_id && obs_value_coded != 8426
-          # raise "#{encounter}"
-          observations << ["#{ConceptName.find_by_concept_id(observation['value_coded'].to_i).name rescue observation.value_text rescue nil} : #{observation['date_created'].strftime("%Y-%m-%d, %p %I:%M") }",
-                          "#{observation['accession_number']}"]
-        end
-      }
-    }
-    return observations
-  end
-
-  # pass recent radiology order data to view
-  def recent_radiology_orders
-    patient = Patient.find(params[:patient_id])
-    @radiology_orders = get_recent_radiology_orders(patient.id)
-    @patient_id = params[:patient_id]
-  end
-
   def next_task_description
     @task = Task.find(params[:task_id]) rescue Task.new
     render :template => 'dashboards/next_task_description', :layout => false
@@ -1394,7 +1351,6 @@ class GenericPatientsController < ApplicationController
         label3.draw_text(condition,25,line+=30,0,2,1,1,false)
       } rescue []
     end
-    raise "#{label}"
     return "#{label.print(1)} #{label2.print(1)} #{label3.print(1)}" if !extra_lines.blank?
     return "#{label.print(1)} #{label2.print(1)}"
   end
@@ -1504,45 +1460,6 @@ class GenericPatientsController < ApplicationController
       return print_labels
   end
 
-  # create patient radiology orders lable
-  def patient_radio_orders_label(patient_id)
-    patient = Patient.find(patient_id)
-    patient_bean = PatientService.get_patient(patient.person)
-    
-    radio_orders = Encounter.find(:last,:conditions =>["encounter_type = ? and patient_id = ?",
-        EncounterType.find_by_name("RADIOLOGY EXAMINATION").id,patient.id]).observations
-      labels = []
-      i = 0
-      
-      while i <= radio_orders.size do
-        accession_number = "#{radio_orders[i].accession_number rescue nil}"
-    patient_national_id_with_dashes = PatientService.get_national_id_with_dashes(patient)
-        if accession_number != ""
-          label = 'label' + i.to_s
-          label = ZebraPrinter::Label.new(500,165)
-          label.font_size = 2
-          label.font_horizontal_multiplier = 1
-          label.font_vertical_multiplier = 1
-          label.left_margin = 300
-          label.draw_barcode(50,105,0,1,4,8,50,false,"#{accession_number}")
-          label.draw_multi_text("#{patient_bean.name.titleize.delete("'")} #{patient_national_id_with_dashes}")
-          label.draw_multi_text("x-ray, #{radio_orders[i].name.downcase rescue nil} - #{accession_number rescue nil}")
-          label.draw_multi_text("#{radio_orders[i].obs_datetime.strftime("%d-%b-%Y %H:%M")}")
-          labels << label
-          end
-          i = i + 1
-      end
-
-      print_labels = []
-      label = 0
-      while label <= labels.size
-        print_labels << labels[label].print(2) if labels[label] != nil
-        label = label + 1
-      end
-
-      return print_labels
-  end
-
   def patient_filing_number_label(patient, num = 1)
     file = PatientService.get_patient_identifier(patient, 'Filing Number')[0..9]
     file_type = file.strip[3..4]
@@ -1588,7 +1505,7 @@ class GenericPatientsController < ApplicationController
           label.draw_multi_text("#{encounter.name.humanize} - #{concept_name}: #{obs_value}", :font_reverse => false)
         end
       }
-      labe.print(1)
+      label.print(1)
     end
   end
 

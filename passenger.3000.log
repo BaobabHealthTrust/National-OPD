@@ -1,0 +1,235 @@
+[ 2014-04-20 14:08:17.8551 2260/b74b1700 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'abamboed', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS4xbzV3NjVjL3RlbXBfZGlyX3RvdWNoZXIucGlk', 'default_group' => 'abamboed', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.8', 'default_user' => 'abamboed', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.1o5w65c/locations.ini', 'passenger_version' => '4.0.40', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.40', 'web_server_pid' => '2259', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-04-20 14:08:17.9480 2263/b740f700 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.2259/generation-0/request
+[ 2014-04-20 14:08:18.0058 2269/b6b12940 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.2259/generation-0/logging
+[ 2014-04-20 14:08:18.0062 2260/b74b1700 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 2308 stdout: 
+App 2308 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-04-20 14:08:28.3495 2263/b66ddb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 2308, listening on unix:/tmp/passenger.1.0.2259/generation-0/backends/preloader.2308
+App 2346 stdout: 
+App 2567 stdout: 
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#type is deprecated; use Object#class
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#id will be deprecated; use Object#object_id
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#type is deprecated; use Object#class
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#id will be deprecated; use Object#object_id
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#type is deprecated; use Object#class
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#id will be deprecated; use Object#object_id
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#type is deprecated; use Object#class
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#id will be deprecated; use Object#object_id
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#type is deprecated; use Object#class
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#id will be deprecated; use Object#object_id
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#type is deprecated; use Object#class
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#id will be deprecated; use Object#object_id
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#type is deprecated; use Object#class
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#id will be deprecated; use Object#object_id
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#type is deprecated; use Object#class
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#id will be deprecated; use Object#object_id
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#type is deprecated; use Object#class
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:930: warning: Object#id will be deprecated; use Object#object_id
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 2308 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 6859 stdout: 
+App 6859 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-04-20 15:59:50.0926 2263/b66ddb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 6859, listening on unix:/tmp/passenger.1.0.2259/generation-0/backends/preloader.6859
+App 6881 stdout: 
+App 6859 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 6859 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+[ 2014-04-20 16:00:50.3723 6970/b74b1700 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+[ 2014-05-07 05:30:48.9103 3529/b743b700 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'abamboed', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS51aWV3eDgvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'abamboed', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.8', 'default_user' => 'abamboed', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.uiewx8/locations.ini', 'passenger_version' => '4.0.40', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.40', 'web_server_pid' => '3528', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-05-07 05:30:48.9187 3532/b7400700 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.3528/generation-0/request
+[ 2014-05-07 05:30:48.9373 3540/b6ad9940 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.3528/generation-0/logging
+[ 2014-05-07 05:30:48.9380 3529/b743b700 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 3566 stdout: 
+App 3566 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-07 05:30:52.6472 3532/b71ffb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 3566, listening on unix:/tmp/passenger.1.0.3528/generation-0/backends/preloader.3566
+App 3586 stdout: 
+App 3591 stdout: 
+[ 2014-05-07 05:47:45.3948 3540/b6ad9940 agents/LoggingAgent/Main.cpp:289 ]: Caught signal, exiting...
+[ 2014-05-07 06:54:44.4909 7300/b74c3700 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'abamboed', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS5neWw3b2gvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'abamboed', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.8', 'default_user' => 'abamboed', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.gyl7oh/locations.ini', 'passenger_version' => '4.0.40', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.40', 'web_server_pid' => '7299', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-05-07 06:54:44.5975 7303/b74c8700 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.7299/generation-0/request
+[ 2014-05-07 06:54:44.7317 7309/b6b3b940 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.7299/generation-0/logging
+[ 2014-05-07 06:54:44.7338 7300/b74c3700 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 7337 stdout: 
+App 7337 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+App 7337 stderr: 
+[ 2014-05-07 06:54:49.9834 7303/b72beb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 7337, listening on unix:/tmp/passenger.1.0.7299/generation-0/backends/preloader.7337
+App 7357 stdout: 
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 8395 stdout: 
+App 8395 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-07 07:15:09.5508 7303/b72ffb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 8395, listening on unix:/tmp/passenger.1.0.7299/generation-0/backends/preloader.8395
+App 8415 stdout: 
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 9286 stdout: 
+App 9286 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-07 07:39:58.5853 7303/b72beb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 9286, listening on unix:/tmp/passenger.1.0.7299/generation-0/backends/preloader.9286
+App 9306 stdout: 
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 9695 stdout: 
+App 9695 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-07 07:50:44.3849 7303/b66bdb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 9695, listening on unix:/tmp/passenger.1.0.7299/generation-0/backends/preloader.9695
+App 9715 stdout: 
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 7337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12556 stdout: 
+App 12556 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-07 08:59:44.8911 7303/b667cb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 12556, listening on unix:/tmp/passenger.1.0.7299/generation-0/backends/preloader.12556
+App 12576 stdout: 
+App 12601 stdout: 
+App 12606 stdout: 
+App 12613 stdout: 
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12915 stdout: 
+App 12915 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+App 12915 stderr: 
+[ 2014-05-07 09:09:44.2837 7303/b667cb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 12915, listening on unix:/tmp/passenger.1.0.7299/generation-0/backends/preloader.12915
+App 12935 stdout: 
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 12556 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 13694 stdout: 
+App 13694 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-07 09:33:37.0566 7303/b66feb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 13694, listening on unix:/tmp/passenger.1.0.7299/generation-0/backends/preloader.13694
+App 13716 stdout: 
+App 13727 stdout: 
+App 13732 stdout: 
+[ 2014-05-07 13:04:05.2109 7309/b6b3b940 agents/LoggingAgent/Main.cpp:289 ]: Caught signal, exiting...
+[ 2014-05-08 03:29:33.0641 2300/b7434700 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'abamboed', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS4xZmdzYzVwL3RlbXBfZGlyX3RvdWNoZXIucGlk', 'default_group' => 'abamboed', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.8', 'default_user' => 'abamboed', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.1fgsc5p/locations.ini', 'passenger_version' => '4.0.40', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.40', 'web_server_pid' => '2299', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-05-08 03:29:33.1791 2303/b7417700 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.2299/generation-0/request
+[ 2014-05-08 03:29:33.2374 2309/b6b0c940 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.2299/generation-0/logging
+[ 2014-05-08 03:29:33.2379 2300/b7434700 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 2337 stdout: 
+App 2337 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-08 03:29:41.5009 2303/b70ffb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 2337, listening on unix:/tmp/passenger.1.0.2299/generation-0/backends/preloader.2337
+App 2378 stdout: 
+App 2337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 2337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 2337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 2337 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3170 stdout: 
+App 3170 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-08 03:49:43.7517 2303/b727db40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 3170, listening on unix:/tmp/passenger.1.0.2299/generation-0/backends/preloader.3170
+App 3190 stdout: 
+App 3217 stdout: 
+App 3221 stdout: 
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3738 stdout: 
+App 3738 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-08 04:07:21.7930 2303/b727db40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 3738, listening on unix:/tmp/passenger.1.0.2299/generation-0/backends/preloader.3738
+App 3760 stdout: 
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3170 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3975 stdout: 
+App 3975 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-08 04:14:16.2232 2303/b707db40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 3975, listening on unix:/tmp/passenger.1.0.2299/generation-0/backends/preloader.3975
+App 3998 stdout: 
+App 3738 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3738 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3738 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3738 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 4364 stdout: 
+App 4364 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-08 04:25:59.4355 2303/b707db40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 4364, listening on unix:/tmp/passenger.1.0.2299/generation-0/backends/preloader.4364
+App 4384 stdout: 
+App 4364 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 4364 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 4364 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 4364 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 4364 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 4364 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 4364 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 4364 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 6006 stdout: 
+App 6006 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-08 05:02:33.7409 2303/b66ddb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 6006, listening on unix:/tmp/passenger.1.0.2299/generation-0/backends/preloader.6006
+App 6026 stdout: 
+[ 2014-05-08 09:13:55.5560 2309/b6b0c940 agents/LoggingAgent/Main.cpp:289 ]: Caught signal, exiting...
+[ 2014-05-11 22:17:46.2081 2335/b7426700 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'abamboed', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS54ZHk4bnQvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'abamboed', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.8', 'default_user' => 'abamboed', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.xdy8nt/locations.ini', 'passenger_version' => '4.0.40', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.40', 'web_server_pid' => '2334', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-05-11 22:17:46.3233 2338/b73ed700 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.2334/generation-0/request
+[ 2014-05-11 22:17:46.3813 2345/b6b85940 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.2334/generation-0/logging
+[ 2014-05-11 22:17:46.3820 2335/b7426700 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 2373 stdout: 
+App 2373 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-11 22:17:56.6882 2338/b6fffb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 2373, listening on unix:/tmp/passenger.1.0.2334/generation-0/backends/preloader.2373
+App 2446 stdout: 
+App 2601 stdout: 
+[ 2014-05-11 22:29:58.6461 2345/b6b85940 agents/LoggingAgent/Main.cpp:289 ]: Caught signal, exiting...
+[ 2014-05-12 04:20:22.0036 2364/b74b1700 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'abamboed', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS5oOTNpbWQvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'abamboed', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.8', 'default_user' => 'abamboed', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.h93imd/locations.ini', 'passenger_version' => '4.0.40', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.40', 'web_server_pid' => '2363', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-05-12 04:20:22.1190 2367/b748a700 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.2363/generation-0/request
+[ 2014-05-12 04:20:22.1768 2373/b6adf940 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.2363/generation-0/logging
+[ 2014-05-12 04:20:22.1773 2364/b74b1700 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 2403 stdout: 
+App 2403 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-12 04:20:28.3380 2367/b689cb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 2403, listening on unix:/tmp/passenger.1.0.2363/generation-0/backends/preloader.2403
+App 2424 stdout: 
+App 2403 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 2403 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 2403 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 2403 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3436 stdout: 
+App 3436 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+App 3436 stderr: 
+[ 2014-05-12 04:31:39.2496 2367/b68ddb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 3436, listening on unix:/tmp/passenger.1.0.2363/generation-0/backends/preloader.3436
+App 3456 stdout: 
+App 2403 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 2403 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3436 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3436 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3436 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3436 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3802 stdout: 
+App 3802 stderr: /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+[ 2014-05-12 04:41:04.4481 2367/b689cb40 Pool2/SmartSpawner.h:301 ]: Preloader for /home/abamboed/Desktop/TWSystem/National-OPD started on PID 3802, listening on unix:/tmp/passenger.1.0.2363/generation-0/backends/preloader.3802
+App 3822 stdout: 
+App 3436 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3436 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3436 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#type is deprecated; use Object#class
+App 3436 stderr: /home/abamboed/Desktop/TWSystem/National-OPD/app/controllers/generic_patients_controller.rb:973: warning: Object#id will be deprecated; use Object#object_id
+App 3967 stdout: 

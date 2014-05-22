@@ -665,52 +665,9 @@ class GenericEncountersController < ApplicationController
 		@encounter = Encounter.find(params[:id])
 		@encounter.void
 		head :ok
-	  
-    # If void encounter type match "RADIOLOGY EXAMINATION", it will call "radio_cancel_msi action"
-    if EncounterType.find(@encounter.encounter_type).name = "RADIOLOGY EXAMINATION"
-      radio_cancel_msi(@encounter)
-    end
-  end
+	end
 
-  # create a cancel_radiology_msi file and send it to FTP server 
-  def radio_cancel_msi(encounter)
-    obs_array = @encounter.observations
-    patient_id = @encounter.patient_id
-    person = Patient.find(patient_id).person
-    patient_info = PatientService.get_patient(person)
-    user = current_user
-
-    sample_msi_path = "/home/lin/Desktop/test.msi"
-    
-    obs_array.each do |o|
-      obs = o.to_s.split(':')
-      # raise ("#{obs}")
-      if obs[1].include?("Registration") != true && obs[1].include?("Radiology") != true
-        study_id = o.accession_number
-        cancel_msi_path = "/home/lin/Desktop/#{study_id + '_' +patient_info.name.gsub(' ', '_')}_cancelled_radiology.msi"
-        multiple = obs[1].strip
-
-        msi_file_data = eval(File.read(sample_msi_path))
-  
-        File.open(cancel_msi_path, "w+") do |f|
-            f.write(msi_file_data.gsub('{STUDY_SCHEDULED}', '{STUDY_CANCELLED}').gsub('{SCHEDULED}', '{CANCELLED}'))
-        end
-        send_canclled_msi(cancel_msi_path)        
-      end
-    end
-  end
-
-  # Send cancel msi file to FTP server
-  def send_canclled_msi(file_path)
-    Net::FTP.open(Settings[:ftp_host]) do |ftp|
-      ftp.passive = true
-      ftp.login(Settings[:ftp_user_name], Settings[:ftp_pw])
-      ftp.putbinaryfile(file_path)
-      # ftp.close
-    end
-  end  
-  
-  # List ARV Regimens as options for a select HTML element
+	# List ARV Regimens as options for a select HTML element
 	# <tt>options</tt> is a hash which should have the following keys and values
 	#
 	# <tt>patient</tt>: a Patient whose regimens will be listed

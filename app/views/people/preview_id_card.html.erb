@@ -1,0 +1,95 @@
+<script type="text/javascript">                                                 
+  tt_cancel_destination = "/patients/show/<%= params[:id]%>";           
+  tt_cancel_show = "/patients/show/<%= params[:id]%>";                  
+</script> 
+
+
+<style type="text/css" >
+  #content {
+    height: 718px;
+    background-image: url('/images/Card04_4.jpg');
+  }
+
+  .patient-data { -moz-user-select:none }
+
+  /*patient info font*/
+  .patient_info { 
+    border: 0px solid #eee;
+    vertical-align: top;
+    font-size: 1.5em;
+    -moz-user-select:none
+  }
+
+   .td_1 {
+    height: 60px;
+    width: 630px;
+   }
+
+  .id_card_barcode {
+    border-spacing: 0;
+    margin-top: 15px;
+    margin-left: 600px;
+  }
+
+  .barby-row {
+    
+  }
+
+  .barby-cell {
+    height: 65px;
+  }
+
+  .barby-cell.on {
+    background: #000;
+  }
+
+  @media print {
+    #footer {
+      display: none;
+    }
+  }
+</style>
+<div id="id_card" style="margin: 0px; overflow: auto;">
+  <table class="patient_info" cellspacing="0" style="margin-top: 207px; margin-left: 220px">
+    <tr>
+      <td class="td_1">
+        <b><%= " #{@patient_info.national_id}" %></b>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="td_1">
+        <b><%= " #{@patient_info.name}" %></b>
+      </td>
+      <td></td>
+    </tr>
+    <tr>  
+      <td class="td_1">
+        <b><%= "#{@patient_info.birth_date}"%></b>
+      </td>
+      <td></td>
+    </tr>
+    <tr>  
+      <td class="td_1">
+        <b><%= "#{Time.now.strftime('%Y/%m/%d')}" %></b>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="td_1">
+        <b><%= "Malawi" %></b>
+      </td>
+      <td>
+        <b><%= "#{@patient_info.sex}" %></b>
+      </td>
+    </tr>
+  </table>
+  <div id="patient_barcode" style="margin-left: -35%;">
+    <%= @barcode_html %>
+  </div>
+  <b style="margin-left: 35px; font-size: 1.1em; color: gray; font-weight: bold;">
+    <!-- this is only a sample number for card number -->
+    0123456-001
+  </b>
+</div>
+

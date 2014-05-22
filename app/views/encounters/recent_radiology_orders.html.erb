@@ -1,0 +1,16 @@
+<script>
+	var tt_cancel_destination = "/patients/show/<%=@patient_id%>"
+   	var pacs_user = "<%= Settings[:pacs_user] %>"
+   	window.pacs_pw = "<%= Settings[:pacs_pw] %>"
+</script>
+
+<style>
+  #tt_page_select_activities .options { height: 506px; }
+</style>
+
+<form method = 'post' action = "/patients/recent_radiology_orders?<%=@patient_id%>">
+  <%= select_tag 'radio_exams[]',
+      options_for_select(@radiology_orders),
+      :helpText => "Select order for results(multiple)" ,
+      :multiple =>  true %> 
+</form>

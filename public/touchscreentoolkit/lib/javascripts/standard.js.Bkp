@@ -39,8 +39,6 @@ tstShiftPressed     = false;
 tstFormLabels       = null;
 tstSearchPage       = false;
 tstSearchPostParams = new Array();
-// default for checking if users on radiology exam page
-tst_radiology_exam = false;
 
 tstMultipleSplitChar = ";";
 
@@ -135,12 +133,6 @@ function loadTouchscreenToolkit() {
     if (window.location.href.search(/\/patient\/patient_search_names/) != -1) {
         tstSearchPage = true;
     }
-
-    // set tst_radio_exam to true if users on create radiology exam page
-    if (window.location.href.search(/\/recent_radiology_orders\?/) != -1) {
-        tst_radiology_exam = true;
-    }
-
     disableTextSelection(); // For Opera
 
     addLaunchButton();
@@ -218,22 +210,6 @@ function createInputPage(pageNumber){
     return inputPage;
 }
 
-// get selected oders id for finding result in XERO
-function radiology_result() {
-
-    var radiology_options = document.getElementsByTagName('img')
-    var tt = ''
-    var accession_number = []
-    for (i = 0; i < radiology_options.length; i++) {
-        selected_orders = radiology_options[i].getAttribute('src');
-        if (selected_orders.contains('/touchscreentoolkit/lib/images/ticked.jpg')) {
-            accession_number.push(radiology_options[i].parentNode.parentNode.parentNode.parentNode.getAttribute('tstvalue'))
-        }
-    }
-        // use XERO API to auto login to their web app and search for selected order's result
-        location.href = 'http://129.34.2.100/?user='+ pacs_user + '&password=' + pacs_pw + '&AccessionNumber=' + accession_number.join("\\");
-};
-    
 function createButtons() {
     var pageNumber = tstCurrentPage;
 
@@ -244,12 +220,8 @@ function createButtons() {
     // Show/Hide Captured Data
     buttonsDiv.innerHTML = "<button id='showDataButton' class='button blue navButton' onMouseDown='toggleShowProgress()'><span>Show Data</span></button>";
 
-    // create next/finish button or create view result button on recent radiology page
-    if (tst_radiology_exam) {
-        buttonsDiv.innerHTML += "<button id='viewResultButton' class='button green navButton' onMouseDown='radiology_result()'><span>View Result</span></button>";
-    } else {
-        buttonsDiv.innerHTML += "<button id='nextButton' class='button green navButton' onMouseDown='gotoNextPage()'><span>Next</span></button>";
-    }
+    // create next/finish button
+    buttonsDiv.innerHTML += "<button id='nextButton' class='button green navButton' onMouseDown='gotoNextPage()'><span>Next</span></button>";
 
     // create back button
     buttonsDiv.innerHTML += "<button id='backButton' class='button blue navButton'><span>Back</span></button>";
@@ -268,7 +240,7 @@ function createButtons() {
 
     // create div for extra buttons
     buttonsDiv.innerHTML += "<div id='tt_extraButtons'></div>";
-    
+
     // create cancel button
     buttonsDiv.innerHTML += "<button class='button navButton red' id='cancelButton' onMouseDown='confirmCancelEntry(" + (typeof(save_state) != "undefined"?"true":"") + ");'><span>Cancel</span></button>";
 

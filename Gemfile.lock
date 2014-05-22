@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (2.3.5)
       actionpack (= 2.3.5)
@@ -13,6 +13,7 @@ GEM
     activeresource (2.3.5)
       activesupport (= 2.3.5)
     activesupport (2.3.5)
+    barby (0.5.1)
     devise (1.0.11)
       warden (~> 0.10.3)
     domain_name (0.5.12)
@@ -48,6 +49,7 @@ GEM
     rake (10.1.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rmagick (2.13.2)
     settingslogic (2.0.9)
     unf (0.1.1)
       unf_ext
@@ -62,6 +64,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-mysql2-adapter (= 0.0.3)
+  barby
   devise (= 1.0.11)
   fastercsv
   json (= 1.5.0)
@@ -71,6 +74,7 @@ DEPENDENCIES
   paginate
   rails (= 2.3.5)
   rest-client
+  rmagick
   settingslogic
   warden (= 0.10.7)
   will_paginate (= 2.3.16)

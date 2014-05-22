@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 gem 'rails', '2.3.5'
 gem 'warden', '0.10.7'
 gem 'devise', '1.0.11'
@@ -13,3 +12,5 @@ gem 'mechanize'
 gem 'mysql2'
 gem 'activerecord-mysql2-adapter','0.0.3'
 gem 'paginate'
+gem 'barby'
+gem 'rmagick', :require => 'RMagick'
