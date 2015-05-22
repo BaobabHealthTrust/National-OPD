@@ -117,7 +117,7 @@ module ApplicationHelper
 
   def version
     style = "style='background-color:red;'" unless session[:datetime].blank?
-    "OPD Version: #{NOPD_VERSION} - <span #{style}>#{(session[:datetime].to_date rescue Date.today).strftime('%A, %d-%b-%Y')}</span>"
+    "NOPD Version: #{NOPD_VERSION} - <span #{style}>#{(session[:datetime].to_date rescue Date.today).strftime('%A, %d-%b-%Y')}</span>"
   end
   
   def welcome_message
